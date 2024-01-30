@@ -3,15 +3,17 @@ from django.db import models
 # Create your models here.
 
 class User(models.Model):
+    # Define fields for User model
     user_id              = models.AutoField(primary_key=True)
     name                 = models.CharField(max_length=100)
     email                = models.EmailField(max_length=254, unique=True)
-    membership_date      = models.DateField(auto_now_add=True)
+    membership_date      = models.DateField()
 
     def __str__(self):
         return self.name
     
 class Book(models.Model):
+    # Define fields for Book model
     book_id              = models.AutoField(primary_key=True)
     title                = models.CharField(max_length=100)
     isbn                 = models.CharField(max_length=13, unique=True)
@@ -22,6 +24,7 @@ class Book(models.Model):
         return self.title
     
 class BookDetails(models.Model):
+    # Define fields for BookDetails model
     details_id          = models.AutoField(primary_key=True)
     book_id             = models.OneToOneField(Book, related_name='bookDetails_book',on_delete=models.CASCADE)
     number_of_pages     = models.IntegerField()
@@ -32,6 +35,7 @@ class BookDetails(models.Model):
         return str(self.details_id)
     
 class BorrowedBooks(models.Model):
+    # Define fields for BorrowedBooks model
     user_id             = models.ForeignKey(User, related_name='borrowedBooks_user',on_delete=models.CASCADE)
     book_id             = models.ForeignKey(Book, related_name='borrowedBooks_book',on_delete=models.CASCADE)
     borrow_date         = models.DateField()
