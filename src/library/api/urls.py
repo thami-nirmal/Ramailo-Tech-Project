@@ -1,57 +1,40 @@
-# Import necessary modules
-from rest_framework import serializers
-from library.models import ( 
-                            User,
-                            Book,
-                            BookDetails,
-                            BorrowedBooks
-                            )
+# Import necessary modules and classes
+from django.urls import path
+from .views import (
+                    UserListCreateAPIView,
+                    UserRetrieveAPIView,
+                    BookListCreateAPIView,
+                    BookRetrieveAPIView,
+                    AssignBookDetailsAPIView,
+                    UpdateBookDetailsAPIView,
+                    BorrowedBooksListCreateAPIView,
+                    BorrowedBooksReturnAPIView
+                    )
 
-class UserSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the User model
-    """
-    class Meta:
-        """
-        Meta class for configuring the UserSerializer.
-        """
-        model           = User
-        fields          = ['user_id','name','email','membership_date']
+# Define URL patterns for API endpoints
+urlpatterns     = [
+    # Endpoint to create and list users
+    path('users/', UserListCreateAPIView.as_view(), name='user-list-create'),
+    
+    # Endpoint to retrieve a user by ID
+    path('users/<int:user_id>', UserRetrieveAPIView.as_view(), name='user-retrieve'),
 
+    # Endpoint to create and list books
+    path('books/', BookListCreateAPIView.as_view(), name='book-list-create'),
+    
+    # Endpoint to retrieve a book by ID
+    path('books/<int:book_id>', BookRetrieveAPIView.as_view(), name='book-retrieve'),
+    
+    # Endpoint to assign book details
+    path('book-details-assign/', AssignBookDetailsAPIView.as_view(), name='assign-book-details'),
+    
+    # Endpoint to update book details
+    path('book-details-update/<int:book_id>/', UpdateBookDetailsAPIView.as_view(), name='update-book-details'),
 
-class BookSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the Book model.
-    """
-    class Meta:
-        """
-        Meta class for configuring the BookSerializer.
-        """
-        model           = Book
-        fields          = ['book_id','title','isbn','published_date','genre']
+    # Endpoint to create and list borrowed books
+    path('borrowed-books/', BorrowedBooksListCreateAPIView.as_view(), name='borrowed-books-list-create'),
+    
+    # Endpoint to return a borrowed book
+    path('borrowed-books-return/<int:borrowed_book_id>/', BorrowedBooksReturnAPIView.as_view(), name='borrowed-books-return'),
 
-
-class BookDetailsSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the BookDetails model.
-    """
-    class Meta:
-        """
-        Meta class for configuring the BookDetailsSerializer.
-        """
-        model           = BookDetails
-        fields          = ['details_id','book_id','number_of_pages','publisher','language']
-
-
-class BorrowedBooksSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the BorrowedBooks model.
-    """
-    class Meta:
-        """
-        Meta class for configuring the BorrowedBooksSerializer.
-        """
-        model           = BorrowedBooks
-        fields          = ['user_id','book_id','borrow_date','return_date']
-
-        
+]
