@@ -81,3 +81,126 @@ The project consists of the following components:
 - Django REST Framework
 
 - Python
+
+
+# Library Management API Documentation
+
+## Base URL
+
+All API endpoints are relative to the base URL: `/api/`
+
+## Authentication
+
+- Endpoint: /auth/
+
+- Description: API endpoints are protected and require authentication. Use this endpoint to obtain an authentication token.
+
+
+## Users APIs
+
+List/Create Users
+
+- Endpoint: `/api/users/`
+
+- Method: GET (List), POST (Create)
+
+- Description: Get a list of users or create a new user.
+
+- Authentication: Required (Admin)
+
+- Permissions: Admin only
+
+
+Retrieve User
+
+- Endpoint: `/api/users/{user_id}/`
+
+- Method: GET
+
+- Description: Retrieve details of a specific user by ID.
+
+- Authentication: Required (Admin)
+
+- Permissions: Admin only
+
+
+## Books APIs
+
+List/Create Books
+
+- Endpoint: `/api/books/`
+
+- Method: GET (List), POST (Create)
+
+- Description: Get a list of books or create a new book.
+
+- Authentication: Required (Admin)
+
+- Permissions: Admin only
+
+
+Retrieve Books
+
+- Endpoint: `/api/books/{book_id}`
+
+- Method: GET
+
+- Description: Retrieve details of a specific book by its book ID.
+
+- Authentication: Required (Admin)
+
+- Permissions: Admin only
+
+
+Assign Book Details
+
+- Endpoint: `/api/assign-book-details/`
+
+- Methods: POST (Create)
+
+- Description: Assigns details to a book.
+
+- Authentication: Required (Admin)
+
+- Permissions: Admin only
+
+
+Update Book Details
+
+- Endpoint: `/api/update-book-details/{book_id}/`
+
+- Method: PUT
+
+- Description: Updates book details by book ID.
+
+- Authentication: Required
+
+- Permissions: Admin only
+
+
+## BorrowedBooks APIs
+
+List/Create Borrowed Books
+
+- Endpoint: `/api/borrowed-books/`
+
+- Methods: GET (List), POST (Create)
+
+- Description: Allows recording the borrowing of a book and listing all borrowed books.
+
+- Authentication: Required
+
+- Permissions: Admin only
+
+
+Return Borrowed Book
+
+- Endpoint: `/api/borrowed-books-return/{borrowed_book_id}/`
+
+- Method: PUT
+
+- Description: Updates the system when a borrowed book is returned.
+
+- Authentication: Required
+
+- Permissions: Admin only
