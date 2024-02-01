@@ -23,27 +23,42 @@ git clone https://github.com/thami-nirmal/Ramailo-Tech-project.git
 pip install -r requirements.txt
 ```
 
-4. Navigate to the project directory:
+4. Configure the database in the `settings.py` file:
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'library_db',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+Ensure that you have PostgreSQL and create a database named `library_db` with provided username and password
+
+5. Navigate to the project directory:
 ```
 cd src
 ```
 
-5. Apply database migrations:
+6. Apply database migrations:
 ```
 python manage.py migrate
 ```
 
-6. Create a superuser for accessing the admin panel:
+7. Create a superuser for accessing the admin panel:
 ```
 python manage.py createsuperuser
 ```
 
-7. Start the development server:
+8. Start the development server:
 ```
 python manage.py runserver
 ```
 
-8. Access the admin panel at http://localhost:8000/admin/ and the API endpoints at http://localhost:8000/api/.
+9. Access the admin panel at http://localhost:8000/admin/ and the API endpoints at http://localhost:8000/api/.
 
 
 ## Project Structure
@@ -66,11 +81,13 @@ The project consists of the following components:
 
 ## Features
 
-- Allows creating, listing, and updating users.
+- Allows creating, listing, and retrieving users.
 
-- Allows creating, listing, and updating books.
+- Allows creating, listing, and retrieving books.
 
 - Allows assigning and updating book details.
+
+- Allows listing all borrowed books.
 
 - Allows recording the borrowing and returning of books.
 

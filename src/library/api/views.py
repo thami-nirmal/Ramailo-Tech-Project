@@ -165,7 +165,7 @@ class BorrowedBooksReturnAPIView(RetrieveUpdateAPIView):
         
         except BorrowedBooks.DoesNotExist:
             # Raise a NotFound exception if the borrowed book with the provided ID does not exist
-            raise NotFound("Sorry, the book you are looking for does not borrowed.")
+            raise NotFound("Sorry, the book you are looking for has not been borrowed.")
         
         # Check permissions for the retrieved borrowed book object
         self.check_object_permissions(self.request, borrowed_book_obj)
