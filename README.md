@@ -81,11 +81,13 @@ The project consists of the following components:
 
 ## Features
 
-- Allows creating, listing, and updating users.
+- Allows creating, listing, and retrieving users.
 
-- Allows creating, listing, and updating books.
+- Allows creating, listing, and retrieving books.
 
 - Allows assigning and updating book details.
+
+- Allows listing all borrowed books.
 
 - Allows recording the borrowing and returning of books.
 
