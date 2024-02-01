@@ -54,4 +54,4 @@ README.md:          This file, provides setup instructions and a project overvie
 requirements.txt:   List of Python dependencies required for the project.
 manage.py:          Django project management script.
 settings.py:        Django project settings file.
-urls.py:            Django project URL configuration.
+urls.py:            Django project URL configuration. 
