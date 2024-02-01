@@ -48,10 +48,10 @@ python manage.py runserver
 ## Project Structure
 The project consists of the following components:
 
-library/:           Django app containing the library models, serializers, and API views.
-library.api/:       Django app containing API endpoints for managing users, books, and borrowed books.
-README.md:          This file, provides setup instructions and a project overview.
-requirements.txt:   List of Python dependencies required for the project.
-manage.py:          Django project management script.
-settings.py:        Django project settings file.
-urls.py:            Django project URL configuration. 
+-library/:           Django app containing the library models, serializers, and API views.
+-library.api/:       Django app containing API endpoints for managing users, books, and borrowed books.
+-README.md:          This file, provides setup instructions and a project overview.
+-requirements.txt:   List of Python dependencies required for the project.
+-manage.py:          Django project management script.
+-settings.py:        Django project settings file.
+-urls.py:            Django project URL configuration. 
