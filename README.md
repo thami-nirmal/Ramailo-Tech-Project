@@ -8,14 +8,15 @@ git clone https://github.com/thami-nirmal/Ramailo-Tech-project.git
 ```
 
 2. Activate the virtual environment
-2.1 On Windows:
-```
-env\Scripts\activate
-```
-2.2 On macOS and Linux
-```
-source env/bin/activate
-```
+
+  2.1 On Windows:
+  ```
+  env\Scripts\activate
+  ```
+  2.2 On macOS and Linux
+  ```
+  source env/bin/activate
+  ```
 
 3. Install dependencies using pip:
 ```
